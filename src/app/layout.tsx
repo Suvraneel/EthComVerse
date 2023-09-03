@@ -16,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`w-full h-full ${inter.className}`}>
         <Navbar />
         <Suspense>
           {children}

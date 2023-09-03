@@ -27,6 +27,7 @@
       "@styles/*": [ "./src/styles/*" ],
       "@api/*": [ "./src/app/api/*" ],
       "@fonts": [ "./src/font/font.ts" ],
+      "@icons/*": ["./src/icons/*"],
       "@/*": [ "./src/*" ],
     }
   },

@@ -10,12 +10,12 @@ export default async function Navbar() {
             path: '/'
         },
         {
-            title: 'About',
-            path: '/about'
+            title: 'Discover',
+            path: '/discover'
         },
         {
-            title: 'Contact',
-            path: '/contact'
+            title: 'Products',
+            path: '/products'
         }
     ]
     return (
