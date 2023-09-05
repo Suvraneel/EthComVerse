@@ -1,7 +1,7 @@
 export const statsData = [
     {
         label: 'Total Revenue',
-        desc: 'Your gross sales from all products, excluding refunds and chargebacks.',
+        desc: 'Gross sales from all products, excluding refunds and chargebacks.',
         value: '$0'
     },
     {
@@ -16,7 +16,7 @@ export const statsData = [
     },
     {
         label: 'MRR',
-        desc: 'Your expected monthly recurring revenue based on active subscribed members.',
+        desc: 'Expected monthly recurring revenue based on subscribed members.',
         value: '$0'
     },
 ]

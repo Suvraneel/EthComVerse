@@ -4,9 +4,9 @@ import Image from 'next/image'
 const Card = (props: any) => {
     const { content } = props;
     return (
-        <div className="w-full md:w-1/2 h-fit py-6 px-5 rounded-xl flex flex-row items-center justify-evenly gap-x-4 border grayscale hover:grayscale-0 border-cardGray-700 hover:border-gray-700 sm:min-h-[220px] md:min-h-[180px] lg:min-h-min relative group"
+        <div className="w-full md:w-1/2 h-fit py-6 px-5 rounded-xl flex flex-row items-center justify-evenly gap-x-4 border border-cardGray-700 hover:border-gray-700 sm:min-h-[220px] md:min-h-[180px] lg:min-h-min relative group"
         data-aos={content.aos} data-aos-anchor-placement="center-bottom">
-            <div className='h-[100px] flex aspect-square absolute left-0 z-0'>
+            <div className='h-[100px] flex aspect-square absolute left-0 z-0 grayscale group-hover:grayscale-0'>
                 <Image
                     src={content.hero}
                     alt="Logo"
@@ -25,7 +25,6 @@ const Card = (props: any) => {
                     </p>
                 </div>
             </div>
-
             {content.accent}
         </div>
     )
