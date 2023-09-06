@@ -1,0 +1,13 @@
+// 5880 = 49 hours
+// 3,000 = 25 hours
+// 1051200 = 1 year
+// 889814 = current epoch
+
+// 889814 + 3000 = 645000 + 1051200 = 1696200 1944014
+
+
+
+yarn hardhat make-deal-proposal --contract 0xf2B2081e6827b5b7354C6e3a22f8536f2b353e53 --piece-cid baga6ea4seaqikjxwktqlkx5ueihlckvitnozxxks6j7rs2zijm5aol6duummwgy --piece-size 4194304 --verified-deal true --label bafybeieqiwq4kc5rrfkhsetrhlefqkqt2ojytmgrd537nl3na5ewvfe6r4 --car-size 3274104 --end-epoch 1944014 --start-epoch 645000 --storage-price-per-epoch 0 --provider-collateral 0 --client-collateral 0 --extra-params-version 1 --location-ref "https://data-depot.lighthouse.storage/api/download/download_car?fileId=e6dd9c78-659e-4d15-a4c1-cdb8bb0e2e7d.car" --skip-ipni-announce true --remove-unsealed-copy true
+
+
+Complete! Event Emitted. ProposalId is: 0xee0738b7e946c5bb7f5fcba83c632cf6878a22f5a66b7be55b7e53571e260ae7
