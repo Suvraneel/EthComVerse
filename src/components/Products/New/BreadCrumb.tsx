@@ -1,3 +1,5 @@
+import ChevronRight from "@icons/ChevronRight";
+
 type Props = {
     activeTab: number;
     setActiveTab: (tab: number) => void;
@@ -22,12 +24,9 @@ const Breadcrumb = (props: Props) => {
                                 >
                                     {item}
                                 </h1>
-
-                                {/* <FontAwesomeIcon
-                                    icon={faAngleRight}
-                                    size="2x"
-                                    className={`h-5 w-5 ${i === tabItems.length-1 && "hidden"}`}
-                                /> */}
+                                <ChevronRight
+                                    className={`h-3 w-3 ${i === tabItems.length-1 && "hidden"}`}
+                                />
                             </div>
                         </li>
                     );
