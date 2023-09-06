@@ -28,17 +28,14 @@ const TagInput = (props: any) => {
         {tags.map((item: string, index: number) => (
           <div
             key={item}
-            className="flex flex-start gap-3 w-fit px-3 py-2 rounded-lg bg-transparent gap-y-2 border border-cardGray-700 hover:border-gray-700"
-          >
+            className="flex flex-start gap-3 w-fit px-3 py-2 rounded-lg bg-transparent gap-y-2 border border-cardGray-700 hover:border-gray-700">
             <div className="flex flex-row justify-start items-center gap-1">
               <Hashtag className='h-4 aspect-square' />
               <h1 className="font-bold">{item}</h1>
             </div>
             <div
               className="cursor-pointer flex justify-center items-center"
-              onClick={() => handleRemoveTag(index)}
-            >
-
+              onClick={() => handleRemoveTag(index)}>
               <TrashIcon className='w-6 h-5 hover:text-red-500' />
             </div>
           </div>

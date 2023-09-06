@@ -5,8 +5,8 @@ import ChevronLeft from '@icons/ChevronLeft';
 import ChevronRight from '@icons/ChevronRight';
 import { NextPage } from 'next';
 import { useState } from 'react';
-import Launchpad from './../../../components/Products/New/Form/Launchpad';
-import LiftOff from '../../../components/Products/New/Form/LiftOff';
+import Launchpad from '@components/Products/New/Form/Launchpad';
+import LiftOff from '@components/Products/New/Form/LiftOff';
 
 enum Category {
     "Music Royalty",
@@ -24,8 +24,8 @@ enum Category {
 const CreateProduct: NextPage = () => {
     const tabItems = ["Launchpad", "Customize", "LiftOff"];
     const [activeTab, setActiveTab] = useState<number>(0);
+
     const [formData, setFormData] = useState({
-        genre: 'Other',
         tags: [],
     });
 
