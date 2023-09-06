@@ -4,7 +4,7 @@ pragma solidity ^0.8.17;
 import "./Course.sol";
 
 contract FactoryCourse {
-    // events
+    /// events
     event CreateNewCourse(
         string uri,
         uint supply,
@@ -14,41 +14,41 @@ contract FactoryCourse {
     );
     event WithdrawMoney(address withdrawAddress, uint amount);
 
-    // factory contract owner
-    address private factoryCourseOwner;
+    /// @dev factory contract owner
+    address private factoryOwner;
 
     /**
-     * @notice struct to store all the data of Course ( string uri uint supply uint nftPrice) and FactoryCourse(address factoryCourseOwner) contract
+     * @notice struct to store all the data of Course
      */
     struct factoryCourseStruct {
         string uri;
         uint supply;
         uint nftPrice;
         address factoryCourseAddress;
-        address factoryCourseOwner;
+        address factoryOwner;
     }
 
     /**
-     * @notice searching the struct data of Course and FactoryCourse using owner address
+     * @notice Mapping to store all the details of course created by the creator
+     * @dev creator address -> course details in factoryCourseStruct datatype
      */
-    mapping(address => factoryCourseStruct) public allCourses;
+    mapping(address => factoryCourseStruct[]) private creatorCourses;
 
-    // owner address will be used check and get all NFT collection address / contract address created by owner
-    // (owner address => NFT collection address / contract address)
+    
     /**
-     * @notice owner address will be used check and get all NFT collection address / contract address created by owner
-     * logic (owner address => NFT collection address / contract address)
+     * @notice Mapping to store the courses created by the Creator
+     * @dev Creator Address -> course contract addresses[]
      */
-    mapping(address => address[]) public searchByAddress;
+    mapping(address => address[]) private searchByAddress;
 
-    // number of Courses created
-    uint256 public numOfCourse;
+    /// @notice  number of Courses created
+    uint256 private numOfCourse;
 
     /**
      * @dev constructor to set the owner address of this contract factory
      */
-    constructor(address _factoryCourseOwner) {
-        factoryCourseOwner = _factoryCourseOwner;
+    constructor(address _factoryOwner) {
+        factoryOwner = _factoryOwner;
     }
 
     /**
@@ -87,13 +87,13 @@ contract FactoryCourse {
         );
 
         // Add the new Course to the mapping
-        allCourses[_creatorAddress] = (
+        creatorCourses[_creatorAddress].push(
             factoryCourseStruct(
                 _uri,
                 _supply,
                 _nftPrice,
                 address(this),
-                factoryCourseOwner
+                factoryOwner
             )
         );
 
@@ -111,7 +111,7 @@ contract FactoryCourse {
         uint256 _amount,
         address _withdrawAddress
     ) external payable {
-        if (msg.sender != factoryCourseOwner) {
+        if (msg.sender != factoryOwner) {
             revert ONLY_OWNER_CAN_CALL_FUNCTION();
         }
         if (getContractBalance() < _amount) {
@@ -137,8 +137,8 @@ contract FactoryCourse {
     }
 
     // get the address of FactoryCourse contract owner
-    function getAddressOfFactoryCourseOwner() public view returns (address) {
-        return factoryCourseOwner;
+    function getAddressOffactoryOwner() public view returns (address) {
+        return factoryOwner;
     }
 
     // get all the course NFT addresses deployed by this creator address
@@ -146,6 +146,13 @@ contract FactoryCourse {
         address _creatorAddress
     ) public view returns (address[] memory) {
         return searchByAddress[_creatorAddress];
+    }
+
+    /**
+     * @notice function to get the number of courses created 
+     */
+    function getCourseCount() external view returns(uint){
+        return numOfCourse;
     }
 
     // receive function is used to receive Ether when msg.data is empty
