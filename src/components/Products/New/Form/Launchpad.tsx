@@ -3,7 +3,12 @@ import React from 'react'
 import GenreCard from '../GenreCard'
 
 const Launchpad = (props: any) => {
-    const { formData, handleInputChange } = props;
+    const { formData, setFormData } = props;
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+        const { name, value } = e.target;
+        console.log(value);
+        setFormData({ ...formData, [name]: value });
+    };
     return (
         <div className='w-full h-full flex flex-col justify-start items-start gap-8'>
             <div className='w-full h-fit flex flex-col gap-3'>
@@ -11,7 +16,8 @@ const Launchpad = (props: any) => {
                 <input
                     name='name' onChange={handleInputChange}
                     className='w-full bg-transparent py-3 px-5 rounded-lg flex flex-col items-start justify-start gap-y-2 border border-cardGray-700 hover:border-gray-700  min-h-min relative group'
-                    type='text' placeholder='Title of your Product' />
+                    type='text' placeholder='Title of your Product'
+                    required defaultValue={formData.name} />
             </div>
             <div className='w-full h-fit flex flex-col gap-3'>
                 <h1 className='text-xl font-semibold'>Select Genre/Vibe</h1>
@@ -24,6 +30,7 @@ const Launchpad = (props: any) => {
                                     checked={formData.genre === item.title}
                                     onChange={handleInputChange}
                                     className='hidden peer'
+                                    required
                                 />
                                 <GenreCard content={item} isSelected={formData.genre === item.title} />
                                 <div className='hidden'>{item.title}</div>
@@ -39,7 +46,8 @@ const Launchpad = (props: any) => {
                     <span className='font-medium'>$</span>
                     <input name='price' onChange={handleInputChange}
                         className='w-full h-full bg-inherit outline-none appearance-none'
-                        type='number' placeholder='Product Value' step='.01' min='0' />
+                        type='number' placeholder='Product Value' step='.01' min='0'
+                        required defaultValue={formData.price} />
                 </div>
             </div>
         </div>
