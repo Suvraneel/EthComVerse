@@ -7,8 +7,11 @@ contract FactoryCourse {
     /// @dev factory contract owner
     address private factoryOwner;
 
-    /// @notice  number of Courses created
+    /// @dev number of Courses created
     uint256 private numOfCourse;
+
+    /// @dev commission taken by our protocol
+    uint256 private commission;
 
     /**
      * @notice struct to store all the data of Course
@@ -43,6 +46,15 @@ contract FactoryCourse {
     mapping(address => address[]) private searchByAddress;
 
     /**
+     * @dev modifier to check that only factoryOnwer address can call the function
+     */
+    modifier onlyOwner() {
+        if (msg.sender != factoryOwner) {
+            revert ONLY_OWNER_CAN_CALL_FUNCTION();
+        }
+    }
+
+    /**
      * @dev constructor to set the owner address of this contract factory
      */
     constructor(address _factoryOwner) {
@@ -67,7 +79,8 @@ contract FactoryCourse {
             _supply,
             _nftPrice,
             address(this),
-            _creatorAddress
+            _creatorAddress,
+            commission
         );
 
         // Increment the number of Course
@@ -100,6 +113,14 @@ contract FactoryCourse {
     }
 
     /**
+     * @notice function to set commision Percentage taken by our protocol
+     * @param _commisionPercentage : commision in percentage
+     */
+    function setCommission(uint256 _commisionPercentage) external onlyOwner {
+        commission = _commisionPercentage;
+    }
+
+    /**
      * @notice function to withdraw funds
      * @param _amount : amount owner want to withdraw
      * @param _withdrawAddress: address factoryOwner wants to withdraw to
@@ -107,10 +128,7 @@ contract FactoryCourse {
     function withdraw(
         uint256 _amount,
         address _withdrawAddress
-    ) external {
-        if (msg.sender != factoryOwner) {
-            revert ONLY_OWNER_CAN_CALL_FUNCTION();
-        }
+    ) external onlyOwner {
         if (getContractBalance() < _amount) {
             revert NOT_ENOUGH_BALANCE();
         }
@@ -131,7 +149,6 @@ contract FactoryCourse {
         return address(this).balance;
     }
 
-    // get the address of this contract
     /**
      * @notice function to get the address of the Factory contract
      */
@@ -161,6 +178,13 @@ contract FactoryCourse {
      */
     function getCourseCount() external view returns (uint) {
         return numOfCourse;
+    }
+
+    /**
+     * @notice function to get the commission percentage taken by our protocol
+     */
+    function getCommisionPercentge() external view returns (uint256) {
+        return commission;
     }
 
     /**
