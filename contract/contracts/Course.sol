@@ -100,7 +100,7 @@ contract Course is ERC1155 {
      * @param _amount : amount course owner want to withdraw
      * @param _withdrawAddress : address course owner wants to withdraw to
      */
-    function withdraw(uint _amount, address _withdrawAddress) public payable {
+    function withdraw(uint _amount, address _withdrawAddress) public {
         if (msg.sender != owner) {
             revert ONLY_OWNER_CAN_CALL_FUNCTION();
         }
@@ -129,22 +129,26 @@ contract Course is ERC1155 {
         emit WithdrawToken(_withdrawAddress, _amount);
     }
 
-    ///                 GETTER FUNCTIONS            
-    
+    ///                 GETTER FUNCTIONS
+
     /**
      * @notice function to get the balance of the contract
      */
-    function getContractBalance() public view returns (uint256) {
+    function getContractBalance() external view returns (uint256) {
         return address(this).balance;
     }
 
-    // get the address of this contract
-    function getAddressOfCourseContract() public view returns (address) {
+    /**
+     * @notice function to get the Address of the contract
+     */
+    function getContractAddress() external view returns (address) {
         return address(this);
     }
 
-    // get the address of contract owner
-    function getOwnerAddress() public view returns (address) {
+    /**
+     * @notice get the address of contract owner
+     */
+    function getOwnerAddress() external view returns (address) {
         return owner;
     }
 
