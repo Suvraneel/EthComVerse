@@ -13,8 +13,8 @@ contract Course is ERC1155 {
     /// @notice variable to store maximum number of NFT
     uint public maxSupply;
 
-    /// @notice  counter to keep track how many NFT are minted
-    uint public counter;
+    /// @notice  nftMinted to keep track how many NFT are minted
+    uint public nftMinted;
 
     /// @notice  variable to store the NFT Price;
     uint public nftPrice;
@@ -64,14 +64,14 @@ contract Course is ERC1155 {
      * @notice function to mint and sell 1 NFT
      */
     function nftMint() public payable {
-        if (counter + 1 > maxSupply) {
+        if (nftMinted + 1 > maxSupply) {
             revert NFT_SOLD_OUT();
         }
         if (msg.value < nftPrice) {
             revert SEND_SUFFICENT_TOKEN();
         }
         unchecked {
-            ++counter;
+            ++nftMinted;
         }
         _mint(msg.sender, 0, 1, "");
         emit OneNftMinted(msg.sender, msg.value);
@@ -82,14 +82,14 @@ contract Course is ERC1155 {
      * @param _num number of NFTs user want to mint and buy
      */
     function supportCreator(uint _num) public payable {
-        if (counter + _num > maxSupply) {
+        if (nftMinted + _num > maxSupply) {
             revert NFT_SOLD_OUT();
         }
         if (msg.value < nftPrice * _num) {
             revert SEND_SUFFICENT_TOKEN();
         }
         unchecked {
-            counter += _num;
+            nftMinted += _num;
         }
         _mint(msg.sender, 0, _num, "");
         emit MutlipleNftMinted(msg.sender, msg.value, _num);
@@ -159,9 +159,20 @@ contract Course is ERC1155 {
         return commission;
     }
 
-    // receive function is used to receive Ether when msg.data is empty
+    /**
+     * @notice function to get number of NFTs left
+     */
+    function nftLeft() external view returns (uint256) {
+        return maxSupply - nftMinted;
+    }
+
+    /**
+     * @notice receive function is used to receive Native Token when msg.data is empty
+     */
     receive() external payable {}
 
-    // Fallback function is used to receive Ether when msg.data is NOT empty
+    /**
+     * @notice fallback function is used to receive Native Token when msg.data is NOT empty
+     */
     fallback() external payable {}
 }
