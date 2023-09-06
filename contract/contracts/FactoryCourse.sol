@@ -4,7 +4,6 @@ pragma solidity 0.8.17;
 import "./Course.sol";
 
 contract FactoryCourse {
-    /// STATE VARIABLES ///
     /// @dev factory contract owner
     address private factoryOwner;
 
@@ -22,7 +21,6 @@ contract FactoryCourse {
         address factoryOwner;
     }
 
-    /// EVENTS  ///
     event CreateNewCourse(
         string uri,
         uint supply,
@@ -109,7 +107,7 @@ contract FactoryCourse {
     function withdraw(
         uint256 _amount,
         address _withdrawAddress
-    ) external payable {
+    ) external {
         if (msg.sender != factoryOwner) {
             revert ONLY_OWNER_CAN_CALL_FUNCTION();
         }
@@ -121,10 +119,10 @@ contract FactoryCourse {
         if (!success) {
             revert TRANSFER_FAILED();
         }
-        emit WithdrawMoney(_withdrawAddress, _amount);
+        emit WithdrawToken(_withdrawAddress, _amount);
     }
 
-    ///                         GETTER FUNCTIONS
+    ///                         GETTER FUNCTIONS                         ///
 
     /**
      * @notice function to get the balance of the contract
