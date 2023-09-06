@@ -50,14 +50,15 @@ contract Course is ERC1155 {
         uint256 _maxSupply,
         uint _nftPrice,
         address _factoryAddress,
-        address _creatorAddress
+        address _creatorAddress,
+        uint256 _commision
     ) ERC1155(_uri) {
         _setURI(_uri);
         maxSupply = _maxSupply;
         nftPrice = _nftPrice;
         factoryContractAddress = payable(_factoryAddress);
         owner = payable(_creatorAddress);
-        commission = commission;
+        commission = _commision;
     }
 
     /**
@@ -134,7 +135,7 @@ contract Course is ERC1155 {
     /**
      * @notice function to get the balance of the contract
      */
-    function getContractBalance() external view returns (uint256) {
+    function getContractBalance() public view returns (uint256) {
         return address(this).balance;
     }
 

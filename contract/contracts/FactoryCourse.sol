@@ -31,7 +31,7 @@ contract FactoryCourse {
         address factoryContractAddress,
         address indexed courseAddress
     );
-    event WithdrawMoney(address withdrawAddress, uint amount);
+    event WithdrawToken(address withdrawAddress, uint amount);
 
     /**
      * @notice Mapping to store all the details of course created by the creator
@@ -52,6 +52,7 @@ contract FactoryCourse {
         if (msg.sender != factoryOwner) {
             revert ONLY_OWNER_CAN_CALL_FUNCTION();
         }
+        _;
     }
 
     /**
