@@ -23,12 +23,30 @@
       }
     ],
     "paths": {
-      "@components/*": [ "./src/components/*" ],
-      "@styles/*": [ "./src/styles/*" ],
-      "@api/*": [ "./src/app/api/*" ],
-      "@fonts": [ "./src/font/font.ts" ],
-      "@icons/*": ["./src/icons/*"],
-      "@/*": [ "./src/*" ],
+      "@components/*": [
+        "./src/components/*"
+      ],
+      "@lib/*": [
+        "./src/lib/*"
+      ],
+      "@styles/*": [
+        "./src/styles/*"
+      ],
+      "@api/*": [
+        "./src/app/api/*"
+      ],
+      "@utils/*": [
+        "./src/app/utils/*"
+      ],
+      "@fonts": [
+        "./src/font/font.ts"
+      ],
+      "@icons/*": [
+        "./src/icons/*"
+      ],
+      "@/*": [
+        "./src/*"
+      ],
     }
   },
   "include": [
