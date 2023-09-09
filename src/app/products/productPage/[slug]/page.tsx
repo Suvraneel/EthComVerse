@@ -1,4 +1,3 @@
-// 'use client'
 import Exhibit from '@components/Products/ProductPage/Exhibit';
 import getProductsById from '@utils/getProductById';
 

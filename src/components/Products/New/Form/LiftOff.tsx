@@ -26,6 +26,7 @@ const LiftOff = (props: any) => {
                         style={{ objectFit: "contain" }}
                         loading="lazy"
                         className='group-hover:scale-110 transition-transform duration-75'
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 60vh, 80vh"
                     />
                 </div>
                 <div className='w-full h-full flex flex-col justify-start items-start gap-16'>

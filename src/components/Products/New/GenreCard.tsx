@@ -12,6 +12,7 @@ const GenreCard = (props: any) => {
                         fill={true}
                         style={{ objectFit: "contain" }}
                         loading="lazy"
+                        sizes="(max-width: 768px) 50vw, (max-width: 1200px) 40vw, 30vw"
                     />
                 </div>
                 <div className={`w-1/2 aspect-square  justify-center items-center group-hover:flex relative ${isSelected?'flex':'hidden'}`}>

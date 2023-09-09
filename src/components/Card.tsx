@@ -13,6 +13,7 @@ const Card = (props: any) => {
                     fill={true}
                     style={{ objectFit: "contain" }}
                     loading="lazy"
+                    sizes="100px"
                 />
             </div>
             <div className='z-10 pl-[100px]'>

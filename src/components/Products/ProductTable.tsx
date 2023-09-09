@@ -23,8 +23,7 @@ const ProductTable = (props: any) => {
                 <th
                   scope="col"
                   className="table-cell text-left px-6 py-2"
-                  key={column.id}
-                >
+                  key={column.id}>
                   {column.label}
                 </th>
               ))}
