@@ -52,7 +52,9 @@ const Navbar = () => {
                 </div>
                 <div className="flex justify-end md:w-1/3">
                     <Suspense>
-                        <ConnectKitButton />
+                        <div className='w-fit h-fit rounded-lg border border-cardGray-700 hover:border-gray-700 overflow-hidden'>
+                            <ConnectKitButton/>
+                        </div>
                     </Suspense>
                 </div>
             </div>

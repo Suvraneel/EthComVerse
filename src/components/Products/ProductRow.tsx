@@ -16,10 +16,10 @@ const ProductRow = (props: PdtProps) => {
     const { title, description, price, status, idx, _id } = props;
     return (
         <tr className='w-full h-fit flex flex-col flex-nowrap md:table-row hover:bg-cardGray-900' key={_id}>
-            <td className='table-cell px-6 py-2 font-medium text-base'>{idx + 1}</td>
+            <td className='w-[8vw] table-cell pl-6 py-2 font-medium text-base'>{idx + 1}</td>
             <td className='flex flex-row px-6 py-2 font-medium text-base whitespace-nowrap justify-between peer'>
                 <Link href={`/products/productPage/${title}?productId=${_id}`}>
-                    <div className='w-full max-w-xs truncate overflow-hidden hover:underline underline-offset-4 decoration-white/60'>
+                    <div className='w-full truncate overflow-hidden hover:underline underline-offset-4 decoration-white/60'>
                         {title}
                     </div>
                 </Link>
@@ -31,10 +31,10 @@ const ProductRow = (props: PdtProps) => {
                     <span className="absolute w-3 h-3 top-[0.5] -right-1 bg-cardGray-700 transform rotate-45" />
                 </p>
             </td>
-            <td className='table-cell px-6 py-2 text-base font-medium'>
+            <td className='w-2/12 table-cell px-6 py-2 text-base font-medium'>
                 ${price?.toFixed(2)}
             </td>
-            <td className='table-cell px-6 py-2 text-base mono'>{status}</td>
+            <td className='w-2/12 table-cell px-6 py-2 text-base mono'>{status}</td>
         </tr>
     );
 };
