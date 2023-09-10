@@ -9,7 +9,7 @@ const Exhibit = (props: any) => {
         <div className="flex-1 w-full h-full p-10 lg:px-40 overflow-visible flex flex-col justify-start items-start">
             <div className='w-full h-full flex flex-col justify-start items-start gap-8'>
                 <div className='w-full h-full flex flex-col sm:flex-row justify-start items-start gap-10 md:gap-16'>
-                    <div className='h-[80vh] min-h-min flex flex-row justify-center items-center relative rounded-lg border border-cardGray-700 hover:border-gray-700 group overflow-clip'>
+                    <div className='h-[80vh] w-full flex flex-row justify-center items-center relative rounded-lg border border-cardGray-700 hover:border-gray-700 group overflow-clip'>
                         <Image
                             src={`https://ipfs.moralis.io:2053/ipfs/${productsData?.cover}`}
                             alt="Logo"

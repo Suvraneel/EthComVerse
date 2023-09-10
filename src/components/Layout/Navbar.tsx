@@ -1,9 +1,10 @@
+'use client'
 import Link from 'next/link';
 import { Suspense } from 'react';
+import { ConnectKitButton } from 'connectkit';
 import HamburgerMenu from './HamburgerMenu';
-const { SITE_NAME } = process.env;
 
-export default async function Navbar() {
+const Navbar = () => {
     const menu = [
         {
             title: 'Home',
@@ -28,7 +29,7 @@ export default async function Navbar() {
                     <Link href="/" className="mr-2 flex w-full items-center justify-center md:w-auto lg:mr-6">
                         {/* <LogoSquare /> */}
                         <div className="ml-2 flex-none text-sm font-medium uppercase md:hidden lg:block">
-                            {SITE_NAME}
+                            ETHCOMVERSE
                         </div>
                     </Link>
                     {menu.length ? (
@@ -50,11 +51,13 @@ export default async function Navbar() {
                     {/* <Search /> */}
                 </div>
                 <div className="flex justify-end md:w-1/3">
-                    {/* <Suspense fallback={<OpenCart />}>
-            <Cart />
-          </Suspense> */}
+                    <Suspense>
+                        <ConnectKitButton />
+                    </Suspense>
                 </div>
             </div>
         </nav>
     );
 }
+
+export default Navbar;

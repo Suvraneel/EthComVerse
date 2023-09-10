@@ -1,7 +1,6 @@
-import Navbar from '@components/Layout/Navbar';
+import WalletProvider from '@components/Layout/WalletProvider';
 import { inter } from '@fonts';
 import type { Metadata } from 'next';
-import { Suspense } from 'react';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -17,10 +16,9 @@ const RootLayout = ({
   return (
     <html lang="en">
       <body className={`w-full h-full ${inter.className}`}>
-        <Navbar />
-        <Suspense>
-          {children}
-        </Suspense>
+        <WalletProvider>
+            {children}
+        </WalletProvider>
       </body>
     </html>
   )
