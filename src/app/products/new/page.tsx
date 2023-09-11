@@ -1,12 +1,13 @@
 'use client'
 import Breadcrumb from '@components/Products/New/BreadCrumb';
 import Customize from '@components/Products/New/Form/Customize';
+import Launchpad from '@components/Products/New/Form/Launchpad';
+import LiftOff from '@components/Products/New/Form/LiftOff';
 import ChevronLeft from '@icons/ChevronLeft';
 import ChevronRight from '@icons/ChevronRight';
 import { NextPage } from 'next';
 import { useState } from 'react';
-import Launchpad from '@components/Products/New/Form/Launchpad';
-import LiftOff from '@components/Products/New/Form/LiftOff';
+import { useRouter } from 'next/navigation'
 
 enum Category {
     "Music Royalty",
@@ -18,21 +19,41 @@ enum Category {
     "Podcast",
     "Audiobook",
     "Physical Good",
-    "Other"
+    "Miscellaneous"
 }
 
 const CreateProduct: NextPage = () => {
     const tabItems = ["Launchpad", "Customize", "LiftOff"];
-    const [activeTab, setActiveTab] = useState<number>(0);
-
+    const [activeTab, setActiveTabState] = useState<number>(0);
     const [formData, setFormData] = useState({
+        name: undefined,
+        genre: 'Miscellaneous',
+        price: undefined,
+        description: undefined,
+        thumbnail: undefined,
+        file_upload: undefined,
+        CTA: "Buy Now",
         tags: [],
     });
 
-    const handleSubmit = (e: any) => {
+    const router = useRouter();
+    const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         console.log('Form Data:', formData);
     };
+
+    const setActiveTab = (newTab: number) => {
+        if (newTab == 0)
+            setActiveTabState(newTab);
+        else if (newTab == 1){
+            formData.name && formData.genre && formData.price && setActiveTabState(newTab);
+        }
+        else if (newTab == 2){
+            formData.name && formData.genre && formData.price && formData.description  && setActiveTabState(newTab);
+        }
+        else if (newTab === 3)
+            formData.name && formData.genre && formData.price && formData.description  && router.push('/products')
+    }
 
     return (
         <div className="flex-1 w-full h-full p-10 lg:px-40 overflow-visible flex flex-col justify-start items-start">
@@ -56,7 +77,7 @@ const CreateProduct: NextPage = () => {
                                 Back
                             </button>
                             <button type='submit' className='w-fit h-fit p-3 flex flex-row items-center justify-evenly gap-2 border border-cardGray-700 hover:border-gray-700 font-normal rounded-lg group'
-                                onClick={() => setActiveTab(activeTab + 1)}>
+                            onClick={() => setActiveTab(activeTab + 1)}>
                                 Next
                                 <div className="transform group-hover:translate-x-1 transition-transform">
                                     <ChevronRight className='w-3 h-3' />

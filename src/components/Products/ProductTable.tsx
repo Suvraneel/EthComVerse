@@ -15,7 +15,7 @@ const ProductTable = (props: any) => {
       { id: "status", label: "Status" },
     ];
     return (
-        <div className='w-full h-full flex flex-col justify-start items-center gap-0 relative  border border-cardGray-700 rounded-xl bg-black text-white'>
+        <div className='w-full h-full flex flex-col justify-start items-center gap-0 relative  border rounded-xl bg-gradient-to-r from-black via-black to-transparent shadow-lg shadow-black/80 border-cardGray-700 text-white'>
         <table className='w-full h-full flex md:table overflow-auto table-auto text-sm text-left '>
           <thead className="hidden md:table-header-group text-lg">
             <tr className='table-row text-neutral-400 underline underline-offset-4 font-medium tracking-wider text-base'>
@@ -41,7 +41,7 @@ const ProductTable = (props: any) => {
           </div>
           <div className='w-fit h-full flex flex-row justify-end items-center divide-x-2'>
             <div
-              className='w-fit h-full flex flex-row justify-around gap-2 items-center px-4 group'
+              className='w-fit h-full flex flex-row justify-around gap-2 items-center px-4 group hover:text-white'
               onClick={() => baseIdx >= 5 && setBaseIdx(baseIdx - 5)}>
               <div className="transform group-hover:-translate-x-1 transition-transform">
                 <ChevronLeft className='w-3 h-3' />
@@ -49,7 +49,7 @@ const ProductTable = (props: any) => {
               <h5 className='hidden sm:flex'>Newer</h5>
             </div>
             <div
-              className='w-fit h-full flex flex-row justify-around gap-2 items-center px-4 group'
+              className='w-fit h-full flex flex-row justify-around gap-2 items-center px-4 group hover:text-white'
               onClick={() => baseIdx < productsData.length - 5 && setBaseIdx(baseIdx + 5)}>
               <h5 className='hidden sm:flex'>Older</h5>
               <div className="transform group-hover:translate-x-1 transition-transform">

@@ -15,7 +15,7 @@ const RootLayout = ({
 }) => {
   return (
     <html lang="en">
-      <body className={`w-full h-full ${inter.className}`}>
+      <body className={`w-full h-full bg-gradient-to-br from-black via-black to-white/10 ${inter.className}`}>
         <WalletProvider>
             {children}
         </WalletProvider>

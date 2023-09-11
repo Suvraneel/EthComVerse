@@ -15,6 +15,7 @@ const LiftOff = (props: any) => {
         setFormData({ ...formData, tags: tags });
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [tags])
+
     return (
         <div className='w-full h-full flex flex-col justify-start items-start gap-8'>
             <div className='w-full h-full flex flex-col sm:flex-row justify-start items-start gap-10 md:gap-16'>
