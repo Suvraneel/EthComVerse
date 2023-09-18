@@ -10,7 +10,7 @@ interface StatProps {
 const StatsCard = (props: StatProps) => {
     const { label, desc, value } = props;
     return (
-        <div className='w-full h-full py-4 px-5 rounded-xl flex flex-col items-start justify-start gap-y-2 border grayscale hover:grayscale-0 border-cardGray-700 hover:border-gray-700  min-h-min relative group'>
+        <div className='w-full h-full py-4 px-5 rounded-xl flex flex-col items-start justify-start gap-y-2 border grayscale hover:grayscale-0 bg-gradient-to-r from-black to-transparent shadow-lg shadow-black/80 hover:shadow-xl hover:shadow-black  border-cardGray-700 hover:border-gray-700  min-h-min relative group'>
             <div className='w-full flex flex-row justify-between items-center'>
                 <h3 className='text-lg font-semibold'>{label}</h3>
                 <div

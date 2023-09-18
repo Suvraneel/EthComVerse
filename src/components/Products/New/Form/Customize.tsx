@@ -9,12 +9,12 @@ const Customize = (props: any) => {
   const { formData, setFormData } = props;
   const [currDrop, setCurrDrop] = useState<string | undefined>();
   let fileInputRef = useRef<HTMLInputElement>(null);
-  
+
   const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     console.log(value);
     setFormData({ ...formData, [name]: value });
-};
+  };
   const handleFileInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, files } = e.target;
     if (files && files.length > 0) {
@@ -23,13 +23,13 @@ const Customize = (props: any) => {
     }
   };
 
-  //   const uploading = async (e: any) => {
-  //     const storage = new ThirdwebStorage();
-  //     const url = await storage.upload(e);
-  //     setFile(url?.split("//")[1]);
-  //     setLoading(false);
-  //     console.log(url);
-  //   };
+    // const uploading = async (e: any) => {
+    //   const storage = new ThirdwebStorage();
+    //   const url = await storage.upload(e);
+    //   setFile(url?.split("//")[1]);
+    //   setLoading(false);
+    //   console.log(url);
+    // };
 
   return (
     <div className="w-full h-full flex flex-col justify-start items-start gap-8">
@@ -39,8 +39,7 @@ const Customize = (props: any) => {
           <textarea
             rows={5} name='description' placeholder="Descriptive Insights on the Product"
             className="w-full bg-transparent py-3 px-5 rounded-lg flex flex-col items-start justify-start gap-y-2 border border-cardGray-700 hover:border-gray-700  min-h-min"
-            required defaultValue={formData.description} onChange={handleInputChange}
-          />
+            required defaultValue={formData.description} onChange={handleInputChange}/>
         </div>
       </div>
 
@@ -50,7 +49,7 @@ const Customize = (props: any) => {
           <div className="w-[300px] aspect-square bg-transparent rounded-lg flex flex-col items-start justify-start gap-y-2 border border-cardGray-700 hover:border-gray-700 relative divide-y-2 divide-dashed">
             <label className="flex flex-col justify-center items-center w-full h-full px-4 transition border-2 border-cardGray-700 hover:border-gray-700 border-dashed rounded-md appearance-none cursor-pointer focus:outline-none">
               <div className="w-full h-full flex flex-row justify-center items-center gap-2 text-neutral-400 text-base hover:text-white">
-                <UploadIcon className='w-6 h-6'/>
+                <UploadIcon className='w-6 h-6' />
                 {!(formData.cover!) ?
                   <span className="font-medium ">
                     Drop files, or{" "}
@@ -86,7 +85,7 @@ const Customize = (props: any) => {
         <div className="w-full bg-transparent rounded-lg gap-y-2 border border-cardGray-700 hover:border-gray-700  min-h-min group flex justify-center items-center relative divide-y-2 divide-dashed divide-cardGray-700 hover:divide-gray-700">
           <label className="flex flex-col justify-center items-center w-full h-40 px-4 transition border-2 border-cardGray-700 hover:border-gray-700 border-dashed rounded-md appearance-none cursor-pointer focus:outline-none">
             <div className="w-full h-full flex flex-row justify-center items-center gap-2 text-neutral-400 text-base hover:text-white">
-              <UploadIcon className='w-6 h-6'/>
+              <UploadIcon className='w-6 h-6' />
               <span className="font-medium">
                 Drop files to Attach, or{" "}
                 <span className="text-blue-600 underline">browse</span>
@@ -103,8 +102,7 @@ const Customize = (props: any) => {
                 setCurrDrop(ev.target.files?.[0]?.name);
                 // uploading(ev.target.files?.[0]);
                 handleFileInputChange
-              }}
-            />
+              }} />
           </label>
           {currDrop && (
             <div className="w-full absolute bottom-0 px-4 py-2 flex flex-row justify-center items-center gap-2 text-neutral-400 text-base hover:text-red-500"
@@ -114,11 +112,9 @@ const Customize = (props: any) => {
                 if (fileInputRef.current) {
                   fileInputRef.current.value = "";
                 }
-              }}
-            >
+              }}>
               <TrashIcon
-                className="h-6 w-6"
-              />
+                className="h-6 w-6" />
               <span className="font-medium truncate">
                 {currDrop}
               </span>

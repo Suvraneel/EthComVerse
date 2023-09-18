@@ -24,7 +24,9 @@ const Home: NextPage = () => {
           alt="Logo"
           fill={true}
           style={{objectFit:"contain"}}
-          loading="lazy"
+          loading="eager"
+          priority
+          sizes="100vw"
         />
       </div>
       <div className="w-full h-full flex flex-col gap-4">

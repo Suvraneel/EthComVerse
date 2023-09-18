@@ -9,6 +9,7 @@ const Launchpad = (props: any) => {
         console.log(value);
         setFormData({ ...formData, [name]: value });
     };
+
     return (
         <div className='w-full h-full flex flex-col justify-start items-start gap-8'>
             <div className='w-full h-fit flex flex-col gap-3'>

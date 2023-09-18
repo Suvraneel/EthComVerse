@@ -16,14 +16,14 @@ const Breadcrumb = (props: Props) => {
             <ol className="inline-flex justify-start items-center space-x-1 md:space-x-3">
                 {tabItems.map((item, i) => {
                     return (
-                        <li key={i} className="flex">
+                        <li key={item} className="flex">
                             <div className="flex justify-evenly items-center gap-3">
-                                <h1
+                                <button type='submit'
                                     className={`text-neutral-500 underline-offset-4 hover:underline hover:text-neutral-300 ${activeTab === i && " font-semibold text-white"}`}
                                     onClick={() => setActiveTab(i)}
                                 >
                                     {item}
-                                </h1>
+                                </button>
                                 <ChevronRight
                                     className={`h-3 w-3 ${i === tabItems.length-1 && "hidden"}`}
                                 />
