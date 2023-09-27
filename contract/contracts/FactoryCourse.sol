@@ -29,6 +29,7 @@ contract FactoryCourse {
         uint supply,
         uint nftPrice,
         address factoryContractAddress,
+        address indexed creatorAddress,
         address indexed courseAddress
     );
     event WithdrawToken(address withdrawAddress, uint amount);
@@ -74,7 +75,7 @@ contract FactoryCourse {
         uint256 _supply,
         uint _nftPrice,
         address _creatorAddress
-    ) external {
+    ) external returns (address) {
         Course course = new Course(
             _uri,
             _supply,
@@ -109,8 +110,11 @@ contract FactoryCourse {
             _supply,
             _nftPrice,
             address(this),
-            _creatorAddress
+            _creatorAddress,
+            address(course)
         );
+
+        return address(course);
     }
 
     /**
