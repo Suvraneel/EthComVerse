@@ -8,7 +8,7 @@ import ChevronRight from "@icons/ChevronRight";
 import { NextPage } from "next";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-
+import { postProduct } from '@utils/postProduct';
 import {
   useAccount,
   useContractWrite,
@@ -66,9 +66,9 @@ const CreateProduct: NextPage = () => {
     abi: courseFactoryABI,
     functionName: "createCourse",
     args: [
-      //   URI, // uploaded URI // need to do this
-      //   supply, // supply
-      //   price, // price
+      formData.file_upload,
+      1,
+      formData.price,
       address, // creator
     ],
   });

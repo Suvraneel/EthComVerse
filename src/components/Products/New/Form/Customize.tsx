@@ -13,23 +13,25 @@ const Customize = (props: any) => {
     console.log(value);
     setFormData({ ...formData, [name]: value });
   };
-  const handleFileInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileInputChange = async(e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, files } = e.target;
     if (files && files.length > 0) {
       const selectedFile = files[0];
-      setFormData({ ...formData, [name]: selectedFile });
+      console.log(name+"..."+selectedFile);
+      const cid = await uploading(selectedFile);
+      console.log(cid);
+      setFormData({ ...formData, [name]: cid });
     }
   };
 
   const NFT_STORAGE_TOKEN = process.env.NEXT_PUBLIC_NFT_STORAGE_API_KEY;
 
   const uploading = async (e: any) => {
+    console.log("uploading...")
     const client = new NFTStorage({ token: NFT_STORAGE_TOKEN as string });
     const CID = await client.storeDirectory([e]);
-
     // setLoading(false);
-
-    console.log(CID);
+    return CID;
   };
 
   // const uploading = async (e: any) => {
@@ -82,11 +84,7 @@ const Customize = (props: any) => {
                 className="h-0 w-0"
                 accept="image/*"
                 required
-                onChange={(event) => {
-                  handleFileInputChange;
-                  // setLoading(true);
-                  // uploading(event.target.files?.[0]);
-                }}
+                onChange={handleFileInputChange}
               />
             </label>
           </div>
@@ -114,10 +112,8 @@ const Customize = (props: any) => {
               required
               defaultValue={formData.file_upload}
               onChange={(ev) => {
-                // setLoading(true);
                 setCurrDrop(ev.target.files?.[0]?.name);
-                // uploading(ev.target.files?.[0]);
-                handleFileInputChange;
+                handleFileInputChange(ev);
               }}
             />
           </label>
