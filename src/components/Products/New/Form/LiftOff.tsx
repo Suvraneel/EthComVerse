@@ -33,7 +33,7 @@ const LiftOff = (props: any) => {
                 <div className='w-full h-full flex flex-col justify-start items-start gap-16'>
                     <div className='w-full h-full flex flex-col justify-start items-start flex-wrap gap-3'>
                         <h2 className='text-4xl font-medium'>{formData.name}</h2>
-                        <h3 className='font-mono truncate text-neutral-400'>By {'0x48574865465864658465846564'}</h3>
+                        <h3 className='font-mono truncate text-neutral-400'>By {formData.author||'0x48574865465864658465846564'}</h3>
                         <h1 className='text-5xl font-thin'>$ {formData.price}</h1>
                     </div>
                     <div className='w-full h-full flex flex-col justify-start items-start gap-8'>

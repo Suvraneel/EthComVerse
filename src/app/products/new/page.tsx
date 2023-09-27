@@ -41,10 +41,12 @@ enum Category {
 
 const CreateProduct: NextPage = () => {
   const tabItems = ["Launchpad", "Customize", "LiftOff"];
+  const { address, isConnected } = useAccount();
   const [activeTab, setActiveTabState] = useState<number>(0);
   const [numTokens, setNumTokens] = useState<number>(1);
   const [formData, setFormData] = useState({
     name: undefined,
+    author: address,
     genre: "Miscellaneous",
     price: undefined,
     description: undefined,
@@ -54,7 +56,6 @@ const CreateProduct: NextPage = () => {
     tags: [],
   });
 
-  const { address, isConnected } = useAccount();
 
   const router = useRouter();
   const handleSubmit = (e: React.FormEvent) => {
