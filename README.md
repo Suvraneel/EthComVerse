@@ -1,34 +1,28 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# EthComVerse
 
-## Getting Started
+## Overview
+We have created a creator platform where any creator can tokenize their content, which will be stored on Filecoin using FEVM, with smart contracts deployed on the FEVM Calibration Testnet.
 
-First, run the development server:
+Creators come to our platform to store exclusive content and launch their NFT collections. Users or their fans can purchase these NFTs to access exclusive content and show support to the creator by buying multiple NFTs.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+All transactions are on-chain, thanks to FEVM, and all proceeds from sales go to the creator, which is lacking in Web2.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Benefits:
+1. Content is stored in a decentralized manner.
+2. Only NFT holders can access the content, providing creators with better economic opportunities.
+3. Creators receive all the revenue earned from NFT sales.
+4. Our dapp can earn a minor commission on every sale, making our platform self-sustainable. Currently, it is free.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Technologies Used:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+**FEVM**: Filecoin Ethereum Virtual Machine, We used FEVM to store data on-chain and, ultimately, to store the content on Filecoin.
 
-## Learn More
+**NFT.Storage**: We used NFT.storage for pinning the content and used the metadata for storing the data on-chain.
 
-To learn more about Next.js, take a look at the following resources:
+**WAGMI**: WAGMI was used for connecting wallets and interacting with our smart contract.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Next.js**: Next.js is used as the frontend framework.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+**TailwindCSS**: TailwindCSS is used as the styling framework.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+**Viem**: Viem is used as the Ethereum framework for interacting with the smart contract
