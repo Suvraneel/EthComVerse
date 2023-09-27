@@ -59,6 +59,7 @@ const CreateProduct: NextPage = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Form Data:", formData);
+    postProduct(formData);
   };
 
   const prepareFactoryCourseContractWrite = usePrepareContractWrite({
@@ -103,7 +104,6 @@ const CreateProduct: NextPage = () => {
   const callCourse = async () => {
     await writeAsync2?.().then((res) => {
       console.log("res", res);
-      b;
     });
   };
 
@@ -125,8 +125,13 @@ const CreateProduct: NextPage = () => {
         formData.genre &&
         formData.price &&
         formData.description &&
-        router.push("/products");
-  };
+        poster
+  }
+
+  const poster = async()=>{
+    const contractAddress = await callFactory();
+    router.push("/products");
+  }
 
   return (
     <div className="flex-1 w-full h-full p-10 lg:px-40 overflow-visible flex flex-col justify-start items-start">
