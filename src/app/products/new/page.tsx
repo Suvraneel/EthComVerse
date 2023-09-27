@@ -22,7 +22,7 @@ import dealClientABI from "../../../../ABI/dealClient.json";
 
 const contractAddresses = {
   dealClient: "0xf2B2081e6827b5b7354C6e3a22f8536f2b353e53",
-  courseFactory: "0xc78b7fd421A30C5252474aFE03D0e7ef0aaaeaA6",
+  courseFactory: "0x2e747c31c57c09BF1c9Ecff6a943bA4CA4B2f8cA",
 };
 
 enum Category {
@@ -41,6 +41,7 @@ enum Category {
 const CreateProduct: NextPage = () => {
   const tabItems = ["Launchpad", "Customize", "LiftOff"];
   const [activeTab, setActiveTabState] = useState<number>(0);
+  const [numTokens, setNumTokens] = useState<number>(1);
   const [formData, setFormData] = useState({
     name: undefined,
     genre: "Miscellaneous",
@@ -60,7 +61,7 @@ const CreateProduct: NextPage = () => {
     console.log("Form Data:", formData);
   };
 
-  const prepareContractWrite = usePrepareContractWrite({
+  const prepareFactoryCourseContractWrite = usePrepareContractWrite({
     address: contractAddresses.courseFactory as `0x${string}`,
     abi: courseFactoryABI,
     functionName: "createCourse",
@@ -73,13 +74,38 @@ const CreateProduct: NextPage = () => {
   });
 
   const { data, isLoading, isSuccess, writeAsync } = useContractWrite(
-    prepareContractWrite.config
+    prepareFactoryCourseContractWrite.config
   );
 
-  // call the contract
-  // await writeAsync?.().then((res) => {
-  //   console.log("res", res);
-  // });
+  // write the function to call the contract
+  const callFactory = async () => {
+    await writeAsync?.().then((res) => {
+      console.log("res", res); // returns contract address ... store it in db
+    });
+  };
+
+  const prepareCourseContractWrite = usePrepareContractWrite({
+    // address: addressOfnewContract
+    abi: courseABI,
+    functionName: "supportCreator",
+    args: [
+      numTokens, // number of tokens to buy
+    ],
+  });
+
+  const {
+    data: data2,
+    isLoading: isLoading2,
+    isSuccess: isSuccess2,
+    writeAsync: writeAsync2,
+  } = useContractWrite(prepareCourseContractWrite.config);
+
+  const callCourse = async () => {
+    await writeAsync2?.().then((res) => {
+      console.log("res", res);
+      b;
+    });
+  };
 
   const setActiveTab = (newTab: number) => {
     if (newTab == 0) setActiveTabState(newTab);
