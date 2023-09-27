@@ -126,10 +126,11 @@ const CreateProduct: NextPage = () => {
         formData.genre &&
         formData.price &&
         formData.description &&
-        poster
+        poster()
   }
 
   const poster = async()=>{
+    console.log("Harsh noob");
     const contractAddress = await callFactory;
     router.push("/products");
   }
