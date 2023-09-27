@@ -1,7 +1,2 @@
 DealClient: 0xf2B2081e6827b5b7354C6e3a22f8536f2b353e53 
-factoryCourse deployed to: 0xc78b7fd421A30C5252474aFE03D0e7ef0aaaeaA6
-
-
-reusing "DealClient" at 0xf2B2081e6827b5b7354C6e3a22f8536f2b353e53
-
-factoryCourse deployed to: 0xaEfea6a5a5D33976920aD4cb880edb188d85ea53
+factoryCourse deployed to: 0x2e747c31c57c09BF1c9Ecff6a943bA4CA4B2f8cA
