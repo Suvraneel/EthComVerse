@@ -8,7 +8,8 @@ import ChevronRight from "@icons/ChevronRight";
 import { NextPage } from "next";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { postProduct } from '@utils/postProduct';
+import postProduct from "@utils/postProduct";
+
 import {
   useAccount,
   useContractWrite,
@@ -129,7 +130,7 @@ const CreateProduct: NextPage = () => {
   }
 
   const poster = async()=>{
-    const contractAddress = await callFactory();
+    const contractAddress = await callFactory;
     router.push("/products");
   }
 
