@@ -1,6 +1,8 @@
 # EthComVerse
 
-![image](https://github.com/Open-Sorcerer/EthComVerse/assets/71517788/acc718b4-355f-4c6d-bdbf-a83130e8dbed)
+![image](https://github.com/Open-Sorcerer/EthComVerse/assets/63473496/4fc0759a-ecc3-4abf-a46a-3f6869ebda6f)
+![image](https://github.com/Open-Sorcerer/EthComVerse/assets/63473496/7d0497b5-71db-4490-a1b0-6aedeccba075)
+
 
 ## Overview
 We have created a creator platform where any creator can tokenize their content, which will be stored on Filecoin using FEVM, with smart contracts deployed on the FEVM Calibration Testnet.
