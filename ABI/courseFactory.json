@@ -55,6 +55,12 @@
       {
         "indexed": true,
         "internalType": "address",
+        "name": "creatorAddress",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
         "name": "courseAddress",
         "type": "address"
       }
@@ -109,7 +115,13 @@
       }
     ],
     "name": "createCourse",
-    "outputs": [],
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
     "stateMutability": "nonpayable",
     "type": "function"
   },
