@@ -1,9 +1,8 @@
 'use client'
-import InfoIcon from '@icons/Info';
-import { ReactNode, useState } from 'react';
-import ProductRow from './ProductRow';
 import ChevronLeft from '@icons/ChevronLeft';
 import ChevronRight from '@icons/ChevronRight';
+import { useState } from 'react';
+import ProductRow from './ProductRow';
 
 const ProductTable = (props: any) => {
     const {productsData} = props;
