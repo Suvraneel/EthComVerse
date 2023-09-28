@@ -1,6 +1,5 @@
 import React, { ReactNode } from 'react';
-import InfoIcon from '@icons/Info';
-
+import ChevronRight from '@icons/ChevronRight';
 interface StatProps {
     children?: ReactNode;
     label?: string;
@@ -16,7 +15,7 @@ const StatsCard = (props: StatProps) => {
                 <div
                     className="w-fit h-fit">
                     <div className='peer'>
-                        <InfoIcon className='w-6 h-6' />
+                        <ChevronRight className='w-6 h-6' />
                     </div>
                     <div role="tooltip" className="w-[200px] max-w-full h-fit absolute -top-16 -right-0 z-10 px-3 py-2 text-sm font-medium text-white bg-dark rounded-lg shadow-sm bg-cardGray-700 hidden peer-hover:block">
                         {desc}
