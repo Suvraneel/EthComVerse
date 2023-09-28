@@ -7,7 +7,7 @@ import getProducts from '@utils/getProducts';
 import { NextPage } from 'next';
 
 const Products: NextPage = async () => {
-  const productsData: any = await getProducts()
+  const productsData: any = await getProducts();
 
   return (
     <div className="flex-1 w-full h-full p-10 lg:px-40 overflow-visible flex flex-col justify-start items-start">
@@ -25,7 +25,7 @@ const Products: NextPage = async () => {
             })
           }
         </div>
-        <ProductTable productsData={productsData.products} />
+        <ProductTable productsData={productsData} />
       </div>
     </div>
   )

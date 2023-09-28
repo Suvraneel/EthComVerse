@@ -8,7 +8,7 @@ const getProducts = async() => {
       });
       let products = await res.json();
       console.log("Fetched Products")
-      return products;
+      return products.products;
     } catch (e) {
       console.error(e);
     }
