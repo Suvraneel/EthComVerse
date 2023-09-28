@@ -1,4 +1,4 @@
-import InfoIcon from '@icons/Info';
+// import InfoIcon from '@icons/Info';
 import Link from 'next/link';
 import { ReactNode } from 'react';
 interface PdtProps {
@@ -24,7 +24,7 @@ const ProductRow = (props: PdtProps) => {
                     </div>
                 </Link>
                 <div className='peer'>
-                    <InfoIcon className='w-6 h-6' />
+                    {/* <InfoIcon className='w-6 h-6' /> */}
                 </div>
                 <p className="w-[200px] h-fit absolute md:right-20 xl:right-40 z-10 px-3 text-sm bg-dark rounded-md shadow-sm hidden peer-hover:md:block bg-cardGray-700 truncate line-clamp-2 overflow-hidden">
                     {description}
