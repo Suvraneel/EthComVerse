@@ -8,7 +8,7 @@ const Discover: NextPage = async () => {
     return (
         <div className="w-full h-full p-10 lg:px-40 flex justify-evenly flex-wrap">
             {
-                productsData.products.map((item: any) => {
+                productsData.products!.map((item: any) => {
                     return(
                     <div key={item._id} className='w-[25vw] aspect-square flex flex-row justify-center items-center relative rounded-lg border border-cardGray-700 hover:border-gray-700 group overflow-clip'>
                         <Image
