@@ -1,4 +1,4 @@
-import ChevronRight from "@icons/ChevronRight";
+import { ChevronRightIcon } from "@heroicons/react/24/outline";
 
 type Props = {
     activeTab: number;
@@ -24,9 +24,7 @@ const Breadcrumb = (props: Props) => {
                                 >
                                     {item}
                                 </button>
-                                <ChevronRight
-                                    className={`h-3 w-3 ${i === tabItems.length-1 && "hidden"}`}
-                                />
+                                {i !== tabItems.length-1 && <ChevronRightIcon className='h-3 w-3'/>}
                             </div>
                         </li>
                     );
