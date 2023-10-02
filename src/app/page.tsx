@@ -1,12 +1,12 @@
 'use client'
+import { cardsContent } from "@api/cardContent"
 import Card from "@components/Card"
 import { swera } from "@fonts"
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+import { NextPage } from 'next'
 import Image from "next/image"
-import { cardsContent } from "@api/cardContent"
-import { useEffect } from "react";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import { NextPage } from 'next';
+import { useEffect } from "react"
 
 const Home: NextPage = () => {
   useEffect(() => {

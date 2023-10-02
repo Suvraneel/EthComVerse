@@ -41,9 +41,6 @@
       "@fonts": [
         "./src/font/font.ts"
       ],
-      "@icons/*": [
-        "./src/icons/*"
-      ],
       "@/*": [
         "./src/*"
       ],

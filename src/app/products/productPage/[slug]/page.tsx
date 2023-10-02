@@ -1,5 +1,5 @@
-import Exhibit from '@components/Products/ProductPage/Exhibit';
 import getProductsById from '@utils/getProductById';
+import Exhibit from './Exhibit';
 
 interface IParams {
     productId?: string;

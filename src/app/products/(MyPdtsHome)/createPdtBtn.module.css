@@ -174,7 +174,7 @@
   content: "";
   position: absolute;
   display: block;
-  background: var(--b, linear-gradient(var(--pencil-top) 55%, var(--pencil-middle) 55.1%, var(--pencil-middle) 60%, var(--pencil-bottom) 60.1%));
+  background: var(--b, linear-gradient(to bottom, var(--pencil-top) 55%, var(--pencil-middle) 55.1%, var(--pencil-middle) 60%, var(--pencil-bottom) 60.1%));
   width: var(--w, 5px);
   height: var(--h, 20px);
   border-radius: var(--br, 2px 2px 0 0);

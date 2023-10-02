@@ -1,6 +1,5 @@
 'use client'
-import ChevronLeft from '@icons/ChevronLeft';
-import ChevronRight from '@icons/ChevronRight';
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 import { useState } from 'react';
 import ProductRow from './ProductRow';
 
@@ -43,7 +42,7 @@ const ProductTable = (props: any) => {
               className='w-fit h-full flex flex-row justify-around gap-2 items-center px-4 group hover:text-white'
               onClick={() => baseIdx >= 5 && setBaseIdx(baseIdx - 5)}>
               <div className="transform group-hover:-translate-x-1 transition-transform">
-                <ChevronLeft className='w-3 h-3' />
+                <ChevronLeftIcon className='w-3 h-3' />
               </div>
               <h5 className='hidden sm:flex'>Newer</h5>
             </div>
@@ -52,7 +51,7 @@ const ProductTable = (props: any) => {
               onClick={() => baseIdx < productsData.length - 5 && setBaseIdx(baseIdx + 5)}>
               <h5 className='hidden sm:flex'>Older</h5>
               <div className="transform group-hover:translate-x-1 transition-transform">
-                <ChevronRight className='w-3 h-3' />
+                <ChevronRightIcon className='w-3 h-3' />
               </div>
             </div>
           </div>

@@ -1,10 +1,10 @@
 import { statsData } from '@api/statsData';
-import CreatePdtBtn from '@components/Products/CreatePdtBtn';
-import ProductTable from '@components/Products/ProductTable';
-import StatsCard from '@components/Products/StatsCard';
 import { swera } from '@fonts';
 import getProducts from '@utils/getProducts';
 import { NextPage } from 'next';
+import CreatePdtBtn from './(MyPdtsHome)/CreatePdtBtn';
+import ProductTable from './(MyPdtsHome)/ProductTable';
+import StatsCard from './(MyPdtsHome)/StatsCard';
 
 const Products: NextPage = async () => {
   const productsData: any = await getProducts();

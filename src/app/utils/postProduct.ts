@@ -1,6 +1,6 @@
 const createProduct = async (productData: any) => {
     try {
-      let res = await fetch(`http://localhost:3000/api/products`, {
+      let res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/products`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -21,4 +21,3 @@ const createProduct = async (productData: any) => {
   };
   
   export default createProduct;
-  

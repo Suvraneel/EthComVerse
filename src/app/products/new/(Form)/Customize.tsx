@@ -1,7 +1,6 @@
-import TrashIcon from "@icons/Trash";
-import UploadIcon from "@icons/Upload";
-import { useRef, useState } from "react";
+import { ArrowUpTrayIcon, TrashIcon } from "@heroicons/react/24/outline";
 import { NFTStorage } from "nft.storage";
+import { useRef, useState } from "react";
 
 const Customize = (props: any) => {
   const { formData, setFormData } = props;
@@ -65,7 +64,7 @@ const Customize = (props: any) => {
           <div className="w-[300px] aspect-square bg-transparent rounded-lg flex flex-col items-start justify-start gap-y-2 border border-cardGray-700 hover:border-gray-700 relative divide-y-2 divide-dashed">
             <label className="flex flex-col justify-center items-center w-full h-full px-4 transition border-2 border-cardGray-700 hover:border-gray-700 border-dashed rounded-md appearance-none cursor-pointer focus:outline-none">
               <div className="w-full h-full flex flex-row justify-center items-center gap-2 text-neutral-400 text-base hover:text-white">
-                <UploadIcon className="w-6 h-6" />
+                <ArrowUpTrayIcon className="w-6 h-6" />
                 {!formData.cover! ? (
                   <span className="font-medium ">
                     Drop files, or{" "}
@@ -98,7 +97,7 @@ const Customize = (props: any) => {
         <div className="w-full bg-transparent rounded-lg gap-y-2 border border-cardGray-700 hover:border-gray-700  min-h-min group flex justify-center items-center relative divide-y-2 divide-dashed divide-cardGray-700 hover:divide-gray-700">
           <label className="flex flex-col justify-center items-center w-full h-40 px-4 transition border-2 border-cardGray-700 hover:border-gray-700 border-dashed rounded-md appearance-none cursor-pointer focus:outline-none">
             <div className="w-full h-full flex flex-row justify-center items-center gap-2 text-neutral-400 text-base hover:text-white">
-              <UploadIcon className="w-6 h-6" />
+              <ArrowUpTrayIcon className="w-6 h-6" />
               <span className="font-medium">
                 Drop files to Attach, or{" "}
                 <span className="text-blue-600 underline">browse</span>

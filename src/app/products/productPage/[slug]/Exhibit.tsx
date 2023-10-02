@@ -1,8 +1,7 @@
 'use client'
-import React from 'react'
-import Image
-    from 'next/image';
-import Hashtag from '@icons/Hashtag';
+import { HashtagIcon } from '@heroicons/react/24/outline';
+import Image from 'next/image';
+
 const Exhibit = (props: any) => {
     const { productsData } = props;
     return (
@@ -31,7 +30,7 @@ const Exhibit = (props: any) => {
                                         key={item}
                                         className="flex flex-start gap-3 w-fit px-3 py-2 rounded-lg bg-transparent gap-y-2 border border-cardGray-700 hover:border-gray-700">
                                         <div className="flex flex-row justify-start items-center gap-1">
-                                            <Hashtag className='h-4 aspect-square' />
+                                            <HashtagIcon className='h-4 aspect-square' />
                                             <h1 className="font-bold">{item}</h1>
                                         </div>
                                     </div>

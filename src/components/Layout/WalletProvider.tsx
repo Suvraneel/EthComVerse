@@ -4,14 +4,16 @@ import { ConnectKitProvider, getDefaultConfig } from "connectkit";
 import { Suspense } from 'react';
 import { WagmiConfig, createConfig } from "wagmi";
 import { filecoinCalibration } from "wagmi/chains";
-const walletConnectProjectId = process.env.WALLETCONNECT_PROJECT_ID!;
 
-// Choose which chains you'd like to show
-const chains = [filecoinCalibration];
+const walletConnectProjectId = process.env.WALLETCONNECT_PROJECT_ID!;
+const chains = [filecoinCalibration]; // Choose which chains you'd like to show
 
 const config = createConfig(
   getDefaultConfig({
     appName: "EthComVerse",
+    appDescription: "Token-gated Creator Economy",
+    appUrl: "https://ethcomverse.vercel.app",
+    appIcon: "https://family.co/logo.png",
     walletConnectProjectId,
     chains,
   }),

@@ -1,5 +1,4 @@
 import Link from "next/link";
-import React from "react";
 import styles from "./createPdtBtn.module.css";
 
 const NewPdtBtn = () => {

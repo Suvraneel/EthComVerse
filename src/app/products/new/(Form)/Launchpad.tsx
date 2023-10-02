@@ -1,6 +1,6 @@
-import { genreData } from '@api/genreData'
-import React from 'react'
-import GenreCard from '../GenreCard'
+import { genreData } from '@api/genreData';
+import React from 'react';
+import GenreCard from '../GenreCard';
 
 const Launchpad = (props: any) => {
     const { formData, setFormData } = props;

@@ -1,25 +1,22 @@
 "use client";
-import Breadcrumb from "@components/Products/New/BreadCrumb";
-import Customize from "@components/Products/New/Form/Customize";
-import Launchpad from "@components/Products/New/Form/Launchpad";
-import LiftOff from "@components/Products/New/Form/LiftOff";
-import ChevronLeft from "@icons/ChevronLeft";
-import ChevronRight from "@icons/ChevronRight";
-import { NextPage } from "next";
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+import Breadcrumb from "@components/BreadCrumb";
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 import postProduct from "@utils/postProduct";
+import { NextPage } from "next";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import Customize from "./(Form)/Customize";
+import Launchpad from "./(Form)/Launchpad";
+import LiftOff from "./(Form)/LiftOff";
 
 import {
   useAccount,
   useContractWrite,
-  usePrepareContractWrite,
-  useNetwork,
+  usePrepareContractWrite
 } from "wagmi";
 
 import courseABI from "../../../../ABI/course.json";
 import courseFactoryABI from "../../../../ABI/courseFactory.json";
-import dealClientABI from "../../../../ABI/dealClient.json";
 
 const contractAddresses = {
   dealClient: "0xf2B2081e6827b5b7354C6e3a22f8536f2b353e53",
@@ -161,7 +158,7 @@ const CreateProduct: NextPage = () => {
                 onClick={() => setActiveTab(activeTab - 1)}
               >
                 <div className="transform group-hover:-translate-x-1 transition-transform">
-                  <ChevronLeft className="w-3 h-3" />
+                  <ChevronLeftIcon className="w-3 h-3" />
                 </div>
                 Back
               </button>
@@ -172,7 +169,7 @@ const CreateProduct: NextPage = () => {
               >
                 Next
                 <div className="transform group-hover:translate-x-1 transition-transform">
-                  <ChevronRight className="w-3 h-3" />
+                  <ChevronRightIcon className="w-3 h-3" />
                 </div>
               </button>
             </div>

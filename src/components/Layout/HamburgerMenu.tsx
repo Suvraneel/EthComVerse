@@ -1,10 +1,10 @@
 'use client';
 
 import { Dialog, Transition } from '@headlessui/react';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { Fragment, useEffect, useState } from 'react';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
 export default function MobileMenu({ menu }: any) {
   const pathname = usePathname();

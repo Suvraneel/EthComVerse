@@ -1,6 +1,6 @@
 const getProducts = async() => {
     try {
-      let res = await fetch(`http://localhost:3000/api/products`, {
+      let res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/products`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

@@ -1,6 +1,6 @@
+import TagInput from '@components/TagInput';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
-import TagInput from '../TagInput';
 
 const LiftOff = (props: any) => {
     const { formData, setFormData } = props;
